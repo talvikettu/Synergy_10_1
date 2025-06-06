@@ -11,4 +11,17 @@ pets[pet_name] = {
     'Имя владельца': owner_name
 }
 
-print(pets)
+last_digit = int(str(pets[pet_name]["Возраст питомца"])[-1])
+
+if last_digit==1:
+    line = "год."
+elif pets[pet_name]["Возраст питомца"] < 10 and last_digit>=2 and 4>=last_digit:
+    line="года."
+elif 5<=pets[pet_name]["Возраст питомца"]<=20:
+    line="лет."
+elif pets[pet_name]["Возраст питомца"]>20 and 2<=last_digit<=4:
+    line="год."
+elif pets[pet_name]["Возраст питомца"]>20 and (5<=last_digit<=9 or last_digit==0):
+    line = "лет."
+
+print("Это ",pets[pet_name]["Вид питомца"]," по кличке ",next(iter(pets)), ". Возраст: ", pets[pet_name]["Возраст питомца"]," ",line," Имя владельца: ", pets[pet_name]["Имя владельца"])
